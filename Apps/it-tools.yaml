@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: git@github.com:danielndias/homelab.git
     targetRevision: HEAD
-    path: it-tools
+    path: Apps/it-tools
   destination:
     server: "https://kubernetes.default.svc"
     namespace: it-tools
