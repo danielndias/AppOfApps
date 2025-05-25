@@ -5,10 +5,13 @@ metadata:
   namespace: argocd
 spec:
   project: platform
-  source:
-    repoURL: git@github.com:danielndias/homelab-platform.git
-    targetRevision: HEAD
-    path: csi-smb
+  sources:
+    - chart: csi-driver-smb
+      repoURL: https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+      targetRevision: 1.18.0
+    - repoURL: git@github.com:danielndias/homelab-platform.git
+      targetRevision: HEAD
+      path: csi-smb
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kube-system
