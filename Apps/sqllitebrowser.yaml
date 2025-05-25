@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sqllitebrowser
+  name: sqlitebrowser
   namespace: argocd
 spec:
   project: apps
   source:
     repoURL: git@github.com:danielndias/homelab.git
     targetRevision: HEAD
-    path: Apps/sqllitebrowser
+    path: Apps/sqlitebrowser
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: sqllitebrowser
+    namespace: sqlitebrowser
   syncPolicy:
     automated:
       prune: true
