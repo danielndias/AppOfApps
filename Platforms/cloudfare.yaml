@@ -11,10 +11,16 @@ spec:
       targetRevision: 0.3.2
       helm:
         valueFiles:
-          - $values/tunnel-values.yaml
+          - $cloudflare/tunnel-values.yaml
     - repoURL: git@github.com:danielndias/homelab-platform.git
       targetRevision: HEAD
       ref: cloudflare
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cloudflare
+  syncPolicy:
+    # automated:
+    #   prune: true
+    #   selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
