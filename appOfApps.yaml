@@ -3,11 +3,13 @@ kind: Application
 metadata:
   name: app-of-apps
 spec:
-  project: platform
-  source:
-    parth: Platforms
-    repoURL: https://github.com/danielndias/AppOfApps.git
-    targetRevision: HEAD
   destination:
-    server: in-cluster
     namespace: argo-cd
+    server: https://kubernetes.default.svc
+  source:
+    path: 'Platforms'
+    repoURL: git@github.com:danielndias/AppOfApps.git
+    targetRevision: HEAD
+    parth: Platforms
+  sources: []
+  project: platform
