@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps-services
+spec:
+  destination:
+    namespace: argo-cd
+    server: https://kubernetes.default.svc
+  source:
+    path: 'Services'
+    repoURL: git@github.com:danielndias/AppOfApps.git
+    targetRevision: HEAD
+    parth: Services
+  sources: []
+  project: services
