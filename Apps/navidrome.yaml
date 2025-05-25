@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: navidrome
+  namespace: argocd
+spec:
+  project: apps
+  source:
+    repoURL: git@github.com:danielndias/homelab.git
+    targetRevision: HEAD
+    path: Apps/navidrome
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: navidrome
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
