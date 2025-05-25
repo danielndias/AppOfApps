@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: truenas
+  namespace: argocd
+spec:
+  project: services
+  source:
+    repoURL: git@github.com:danielndias/homelab.git
+    targetRevision: HEAD
+    path: Services/truenas
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: external-services
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
