@@ -2,17 +2,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kavita
+  name: dozzle
   namespace: argocd
 spec:
   project: apps
   source:
     repoURL: git@github.com:danielndias/homelab.git
     targetRevision: HEAD
-    path: Apps/kavita
+    path: Apps/dozzle
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: kavita
+    namespace: dozzle
   syncPolicy:
     automated:
       prune: true
